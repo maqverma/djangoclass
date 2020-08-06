@@ -1,0 +1,23 @@
+{% include "common/head.html" %}
+  <body>
+
+    {% include "common/menu.html" %}
+
+    <div class="container">
+
+      <form class="form-signin" method="post">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Please sign up</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="text" id="name" class="form-control" placeholder="Full Name" required autofocus style="margin-bottom:6px" name="name">
+        <input type="text" id="mobile" class="form-control" placeholder="Mobile No" required autofocus style="margin-bottom:6px" name="mobile">
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus style="margin-bottom:6px" name="email">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="pass1">
+        <input type="password" id="reppass" class="form-control" placeholder="Confirm Password" required name="pass2">
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+      </form>
+
+    </div> <!-- /container -->
+{% include "common/foot.html" %}
