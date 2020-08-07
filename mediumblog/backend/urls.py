@@ -19,4 +19,5 @@ from .views import *
 
 urlpatterns = [
     path('', Index.as_view(), name="index"),
+    path('ajax/', Ajax.as_view(), name="ajax"),
 ]

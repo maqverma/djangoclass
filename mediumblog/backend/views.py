@@ -16,3 +16,15 @@ class Index(View):
         articleMode = Article(heading=heading, content=content, image='')
         articleMode.save()
         return redirect('/back/')
+
+
+class Ajax(View):
+    def get(self, request):
+        action = request.GET.get('action', None)
+        countryid = request.GET.get('countryid', None)
+        context = {}
+        return render(request, "backend/form.html", context)
+
+    def post(self, request):
+        heading = request.POST.get('heading', None)
+        content = r

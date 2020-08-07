@@ -29,3 +29,15 @@ class Article(models.Model):
     class Meta:
         managed = True
         db_table = 'acticles'
+
+
+class State(models.Model):
+    id = models.AutoField(primary_key=True)
+    country_id = models.CharField(max_length=255, unique=False)
+    state = models.CharField(max_length=255, unique=False)
+    created_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        managed = True
+        db_table = 'states'
