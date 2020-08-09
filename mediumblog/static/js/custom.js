@@ -20,11 +20,35 @@ $(document).ready(function(){
         $.ajax({
             url: '/back/ajax/?action=countrychange&countryid=' + $('#country').val(),
         })
-        .done(date){
+        .done(function(data){
             alert(data);
-        }
-        .fail(){
+        })
+        .fail(function(){
             alert('Something went wrong.');
-        };
+        });
+    });
+
+    $(document).on('dblclick', '#country', function(){
+        alert('Double Click');
+    });
+
+    $(document).on('mousedown', '#country', function(e){
+        if( e.button == 2 ) {
+          alert('Right mouse button!');
+          return false;
+        }
+    });
+
+//    $(document).on('click', '#country', function(){
+//        alert('Single Click');
+//    });//jquery style
+
+    var conob = document.getElementById('country');
+    conob.addEventListener('click', function(){
+        alert('Single Click');
+    });//native js style
+
+    $.ajax({
+
     });
 });

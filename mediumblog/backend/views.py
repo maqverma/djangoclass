@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse, JsonResponse
 from django.views import View
+from django.forms.models import model_to_dict
+from django.core import serializers
 from .models import *
+import json
 
 # Create your views here.
 
@@ -22,9 +26,12 @@ class Ajax(View):
     def get(self, request):
         action = request.GET.get('action', None)
         countryid = request.GET.get('countryid', None)
-        context = {}
-        return render(request, "backend/form.html", context)
+        data = json.loads(serializers.serialize('json', State.objects.filter(country_id=countryid)))
+        context = {'data': data}
+        return JsonResponse(context)
 
     def post(self, request):
         heading = request.POST.get('heading', None)
         content = r
+
+        {'hgfhgf', 'jhhkj'}
