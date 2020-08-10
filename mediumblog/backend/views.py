@@ -25,13 +25,20 @@ class Index(View):
 class Ajax(View):
     def get(self, request):
         action = request.GET.get('action', None)
-        countryid = request.GET.get('countryid', None)
-        data = json.loads(serializers.serialize('json', State.objects.filter(country_id=countryid)))
-        context = {'data': data}
+        if action == 'countrychange':
+            countryid = request.GET.get('countryid', None)
+            data = json.loads(serializers.serialize('json', State.objects.filter(country_id=countryid)))
+            context = {'data': data}
+            return JsonResponse(context)
+        context = {'data': 'no data'}
         return JsonResponse(context)
 
     def post(self, request):
-        heading = request.POST.get('heading', None)
-        content = r
-
-        {'hgfhgf', 'jhhkj'}
+        action = request.POST.get('action', None)
+        if action == 'countrychange':
+            countryid = request.POST.get('countryid', None)
+            data = json.loads(serializers.serialize('json', State.objects.filter(country_id=countryid)))
+            context = {'data': data}
+            return JsonResponse(context)
+        context = {'data': 'no data'}
+        return JsonResponse(context)
