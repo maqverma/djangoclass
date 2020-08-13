@@ -1,4 +1,5 @@
 $(document).ready(function(){
+//alert('loading');
 //    if(confirm('Click on ok.')){
 //        alert('Django Class');
 //    }else{
@@ -80,12 +81,42 @@ $(document).ready(function(){
 //        alert('Single Click');
 //    });//jquery style
 
-    var conob = document.getElementById('country');
-    conob.addEventListener('click', function(){
-        alert('Single Click');
-    });//native js style
+//    var conob = document.getElementById('country');
+//    conob.addEventListener('click', function(){
+//        alert('Single Click');
+//    });//native js style
 
     $.ajax({
 
+    });
+
+//    $(document).on('click','.ourbutton', function(){
+//        alert('See this alert.');
+//        if( $(this).text() == 'You Clicked'){
+//            $(this).text('Link To Button');
+//            $(this).css('background-color', '#337ab7');
+//        }else{
+//            $(this).text('You Clicked');
+//            $(this).css('background-color', 'green');
+//        }
+//        $(this).html('<input type="text" class="form-control" placeholder="Type Something" />');
+//    });
+
+//        $('.ourbutton').one('click', function(){
+//            alert('Only one time alert.');
+//        });
+
+//    var a = 0;
+//    $(document).on('click', '.ourbutton', function(){
+//        a = a + 1;
+//        $('.counter').text(a);
+//    });
+
+    $(document).on('click', '.ourbutton', function(){
+        if($('body').hasClass('bodytagcss')){
+            $('body').removeClass('bodytagcss');
+        }else{
+            $('body').addClass('bodytagcss');
+        }
     });
 });
